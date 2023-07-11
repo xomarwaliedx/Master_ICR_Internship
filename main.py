@@ -16,8 +16,9 @@ class MainWindow(QMainWindow):
         logo_label = QLabel()
         logo_pixmap = QPixmap("logo.png")
         logo_pixmap = logo_pixmap.scaled(188, 47)
-        # text boxes labels
+        logo_label.setPixmap(logo_pixmap)
         layout.addWidget(logo_label, 0, 2, 2, 1)
+        # text boxes labels
         label1 = QLabel("Equation:")
         layout.addWidget(label1, 0, 0)
         label2 = QLabel("X1:")
