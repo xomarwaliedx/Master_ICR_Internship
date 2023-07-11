@@ -21,7 +21,6 @@ def app(request):
 
     return test_app
 
-
 @pytest.fixture
 def main_window(app, qtbot):
     main_window = MainWindow()
@@ -29,7 +28,6 @@ def main_window(app, qtbot):
     qtbot.addWidget(main_window)
     qtbot.waitExposed(main_window)
     return main_window
-
 
 def test_update_graph_button(main_window, qtbot):
     text_box_eq = main_window.text_box_eq
@@ -42,7 +40,6 @@ def test_update_graph_button(main_window, qtbot):
     text_box_eq.returnPressed.emit()
     with qtbot.waitExposed(main_window):
         assert canvas.figure.axes[0].get_title() == "Graph of x**2"
-
 
 def test_update_graph_invalid_input(main_window, qtbot):
     text_box_eq = main_window.text_box_eq
@@ -76,7 +73,6 @@ def test_update_graph_default_range(main_window, qtbot):
     with qtbot.waitExposed(main_window):
         assert np.allclose(canvas.figure.axes[0].get_xlim(), (0, 10),atol=6)
         assert np.allclose(canvas.figure.axes[0].get_ylim(), (0, 100),atol=6)
-
 
 def test_update_graph_custom_range(main_window, qtbot):
     text_box_eq = main_window.text_box_eq
